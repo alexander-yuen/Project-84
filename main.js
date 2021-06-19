@@ -1,12 +1,16 @@
 canvas = document.getElementById('myCanvas');
 ctx = canvas.getContext("2d");
-
+arrayNASA = ["nasa_image_1.jpg","nasa_image_2.jpeg","nasa_image_3.jpg","nasa_image_4.jpg"];
+randomnum = Math.floor(Math.random()*4);
+console.log(randomnum);
 rover_width = 100;
 rover_height = 90;
 
-background_image = "https://i.pinimg.com/736x/d0/9c/4c/d09c4cfd1b93cc66dc13c8b461fd2145.jpg";
+background_image = arrayNASA[randomnum];
+console.log("background_image = "+background_image);
 
-rover_image = "https://i.pinimg.com/736x/d0/9c/4c/d09c4cfd1b93cc66dc13c8b461fd2145.jpg";
+
+rover_image = "rover.png";
 rover_x = 10;
 rover_y = 10;
 
@@ -17,7 +21,7 @@ function add(){
 
     rover_imgTag = new Image();
     rover_imgTag.onload = uploadrover;
-    rover_imgTag.src = "https://i.pinimg.com/736x/d0/9c/4c/d09c4cfd1b93cc66dc13c8b461fd2145.jpg";
+    rover_imgTag.src = rover_image;
 }
 
 function uploadBackground(){
@@ -56,5 +60,44 @@ function my_keydown(e){
         {
             right();
             console.log("right");
+        }
+    }
+
+    function up(){
+        if(rover_y >= 0){
+            rover_y -= 10;
+            console.log("When up arrow is press, x = "+ rover_x +"Y = " +rover_y);
+            uploadBackground();
+            uploadrover();
+            
+        }
+    }
+
+    function down(){
+        if(rover_y <= 500){
+            rover_y += 10;
+            console.log("When down arrow is press, x = "+ rover_x +"Y = " +rover_y);
+            uploadBackground();
+            uploadrover();
+            
+        }
+    }
+
+    function left(){
+        if(rover_x >= 0){
+            rover_x -= 10;
+            console.log("When up arrow is press, x = "+ rover_x +"Y = " +rover_y);
+            uploadBackground();
+            uploadrover();
+            
+        }
+
+    }function right(){
+        if(rover_x >= 0){
+            rover_x -= 10;
+            console.log("When up arrow is press, x = "+ rover_x +"Y = " +rover_y);
+            uploadBackground();
+            uploadrover();
+            
         }
     }
